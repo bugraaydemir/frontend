@@ -1,0 +1,46 @@
+.notificationBar{
+    display:grid;
+    gap:10px;
+    margin:0 auto;
+    border-radius:20px;
+    padding:0.5rem;
+    max-width:25rem;
+    overflow-y: auto; 
+    overflow-x: clip; 
+    max-height: 95vh;
+    position: absolute;
+    z-index: 9999;
+}
+.notificationBarList{
+    display:grid;
+    gap:10px;
+    margin:0 auto;
+    padding:0.2rem;
+    width:14rem;
+    cursor:pointer;
+    z-index: 9999;
+
+}
+.notifyBarList {
+    display:flex;
+    flex-direction: row;
+}
+
+.isRead{
+    opacity: 80%;
+}
+.widget{
+    width:88%;
+}
+.notificationUserImage{
+    width:50px;
+    height:50px;
+}
+.notificationBarList hr{
+    margin: -1rem 0;
+}
+.navigateToNotifications:hover{
+    cursor:pointer;
+    color:darkblue
+
+}

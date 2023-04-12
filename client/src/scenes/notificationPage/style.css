@@ -1,0 +1,21 @@
+.notificationList{
+    display:grid;
+    gap:10px;
+    margin:0 auto;
+    padding:0.2rem;
+    max-width:25rem;
+}
+.notificationPage{
+    display:grid;
+    gap:10px;
+    margin:0 auto;
+    padding:0.2rem;
+    width:100%;
+}
+.notifyList {
+    display:flex;
+    flex-direction: row;
+}
+.isRead{
+    opacity: 60%;
+}

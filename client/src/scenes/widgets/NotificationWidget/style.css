@@ -1,0 +1,23 @@
+
+.firstCol {
+    display:flex;
+}
+.secondCol{
+    margin:1rem auto;
+}
+.Notify{
+    display:block;
+    margin:1rem auto;
+}
+.notificationSet{
+    display:block;
+    margin:1rem auto;
+}
+.submitButton{
+    display:flex;
+    justify-content: center;
+}
+
+body p {
+    display:block;
+}

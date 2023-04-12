@@ -1,0 +1,34 @@
+.settingsPage {
+    display:flex;
+    flex-direction: column;
+
+}
+
+.settingsNavbar {
+    display: flex;
+    flex-direction: row;
+}
+.settingOptions{
+    display:flex;
+    flex-direction: row;
+    margin:0rem auto;
+    width:60%;
+    border:2px solid;
+    border-radius:20px;
+}
+.settingsColumn {
+    display:flex;
+    flex-direction: row;
+    gap:3rem;
+    justify-content: center;
+    border:1px solid;
+    border-radius:20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .settingsColumn{
+        display:flex;
+        flex-direction: column;
+        gap:0;
+    }
+}

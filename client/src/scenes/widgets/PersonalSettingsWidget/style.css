@@ -1,0 +1,39 @@
+
+.firstCol {
+    display:flex;
+}
+.secondCol{
+    display:flex;
+    width:25rem;
+    flex-direction: initial;
+    gap:1rem;
+    margin:0 auto;
+}
+.PS{
+    display:block;
+    margin:1rem auto;
+}
+.NameSettings{
+    display:flex;
+    position: relative;
+    flex-direction: row;
+    margin:0 auto;
+}
+.isName{
+    display:flex;
+}
+.isEmail{
+    display:flex;
+    gap:0rem
+}
+body p {
+    display:block;
+}
+
+@media only screen and (max-width: 1000px) {
+    .isName, .isEmail, .isLocation,.isOccupation{
+        display:flex;
+        flex-direction: column;
+        gap:0;
+    }
+}

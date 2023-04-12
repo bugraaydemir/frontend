@@ -1,0 +1,115 @@
+
+.textUserName{
+    display:ruby;
+}
+.userName{
+    display:flex;
+    flex-direction: row;
+    
+}
+.user-image :hover{
+  opacity:0.4;
+  transition: 0.2s ease-in;
+}
+
+.profileCard{
+  border-radius: 30px;
+    flex-direction: row;
+    position: relative;
+    height:150px;
+    width:50%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.userName-text{
+    display:ruby;
+    margin-top:1rem;
+}
+.cardRow{
+    gap:1rem;
+    margin:0 auto;
+}
+
+.textName, .textOccupation{
+    display:ruby;
+    width:100%;
+}
+.info{
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+}
+p{
+    display:ruby;
+}
+
+  .followerAndPost-info{
+    display:flex;
+    gap:1rem;
+  }
+  .user-widget {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:0rem 8rem 0 0rem;
+  }
+  
+  .user-name {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .user-occupation {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+@media screen and (max-width: 768px) {
+  .user-info {
+    padding: 0;
+  }
+
+
+  .profileCard{
+    border:1px solid white;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height:150px;
+    width:50%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+}
+
+.uploadImage{
+  display:flex;
+  flex-direction: column;
+  font-size: 10px;
+  z-index: 9999;
+  position: absolute;
+}
+.uploadImage input{
+  color: inherit;
+  background: transparent;
+}
+.uploadImage button{
+  color: inherit;
+  background: transparent;
+}
+

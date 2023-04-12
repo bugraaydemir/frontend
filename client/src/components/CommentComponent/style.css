@@ -1,0 +1,40 @@
+
+
+.parentComment-text,.nameParentComment{
+    width:350px;
+    overflow-wrap: break-word;
+    font-size:15px;
+}
+@media only screen and (max-width: 1000px) {
+
+    .parentComment-text,.nameParentComment{
+        width:500px;
+        overflow-wrap: break-word;
+        font-size:12px;
+    }
+    }
+@media only screen and (max-width:640px) {
+
+    .parentComment-text,.nameParentComment{
+        width:400px;
+    overflow-wrap: break-word;
+    font-size:12px;
+}
+}
+@media only screen and (max-width:550px) {
+
+    .parentComment-text,.nameParentComment{
+        width:250px;
+        overflow-wrap: break-word;
+        font-size:12px;
+    }
+    }
+
+    @media only screen and (max-width:400px) {
+
+    .parentComment-text,.nameParentComment{
+            width:170px;
+            overflow-wrap: break-word;
+            font-size:12px;
+        }
+        }

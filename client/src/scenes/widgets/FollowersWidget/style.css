@@ -1,0 +1,56 @@
+.userImageFollower p{
+    display:ruby;
+}
+.userImageFollower{
+    display:flex;
+    gap:1rem;
+}
+.userNavigate, .subtitle{
+    display:ruby;
+}
+.userNavigate:hover{
+    cursor:pointer;
+    color: darkblue;
+}
+.userName {
+    display:ruby;
+    gap:2rem;
+}
+.followerCard {
+    display:flex;
+    flex-direction: column;
+    margin:0 auto;
+    align-items: center;
+    width:60%;
+}
+.card-container {
+    width:50%;
+    padding:1rem;
+    border:1px solid white;
+}
+.addandRemove {
+    display:flex;
+    flex-direction: column;
+    margin-right:1rem;
+}
+.card-row {
+    display:flex;
+    flex-direction: row;
+}
+.info{
+    width:100%;
+}
+
+@media only screen and (max-width:1000px) {
+    .followerCard {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:100%;
+    }
+    .card-container {
+        width:100%;
+        padding:1rem;
+        border:1px solid white;
+    }
+}

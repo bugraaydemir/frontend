@@ -1,0 +1,82 @@
+
+
+@media only screen and (max-width: 768px) {
+    .container-lg {
+      width: 94%;
+      margin:0 -4rem;
+
+    }
+}
+.picture {
+    display:flex;
+    gap: 0.7rem;
+}
+.name {
+    margin-top:0.4rem;
+    font-size:11px;
+    width:150px;
+
+}
+
+.nameAndComment {
+    display:flex;
+    flex-direction: column;
+    gap:0;
+}
+@media only screen and (max-width: 768px) {
+    .nameAndComment {
+      width:81%;
+
+    }
+}
+.like {
+    display:flex;
+    flex-direction: row;
+}
+.likeCount {
+    margin-top:0.8rem;
+}
+.deleteComment {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:0px;
+}
+
+.comment-text, .name{
+    width:350px;
+    overflow-wrap: break-word;
+    font-size:12px;
+}
+@media only screen and (max-width: 1000px) {
+
+    .comment-text, .name {
+        width:350px;
+        overflow-wrap: break-word;
+        font-size:12px;
+    }
+    }
+    @media only screen and (max-width:580px) {
+
+.comment-text, .name{
+    width:300px;
+    overflow-wrap: break-word;
+    font-size:12px;
+}
+    }
+@media only screen and (max-width:500px) {
+
+    .comment-text, .name{
+        width:200px;
+        overflow-wrap: break-word;
+        font-size:12px;
+    }
+}
+@media only screen and (max-width:360px) {
+
+    .comment-text, .name{
+        width:140px;
+        overflow-wrap: break-word;
+        font-size:12px;
+    }
+}

@@ -1,0 +1,40 @@
+
+.description{
+    font-size:14px;
+    margin-top:1.2rem;
+    
+}
+.buttonContainer{
+    display:flex;
+    justify-content: center;
+}
+.postCardExplore{
+    width:500px;
+    margin:0 auto;
+    border-radius:25px;
+    transition: opacity 0.3s ease-in-out;
+}
+.postContainer {
+    width:100%;
+    padding:20px;
+    margin:0 auto;
+    transition: opacity 1s ease-in-out;
+
+}
+
+
+  .postImage {
+    max-width: 500px;
+  }
+  
+
+  
+  @media only screen and (max-width: 1000px) {
+    .postCardExplore{
+       width:100%;
+    }
+    .postContainer{
+        padding:0px;
+     }
+
+  }

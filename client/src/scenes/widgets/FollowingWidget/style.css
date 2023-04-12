@@ -1,0 +1,53 @@
+.userImage{
+    display:flex;
+    gap:1rem;
+}
+.userName {
+    display:ruby;
+    gap:2rem;
+}
+.userNavigate, .subtitle{
+    display:ruby;
+}
+.userNavigate:hover{
+    cursor:pointer;
+    color: darkblue;
+}
+.friendCard {
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    width:58%;
+}
+.card-container {
+    width:50%;
+    padding:1rem;
+    border:1px solid white;
+}
+.addandRemove {
+    display:flex;
+    flex-direction: column;
+    margin-right:1rem;
+}
+.info{
+    width:100%;
+}
+.card-row {
+    display:flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width:1000px) {
+    .friendCard {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:100%;
+    }
+    .card-container {
+        width:100%;
+        padding:1rem;
+        border:1px solid white;
+    }
+}

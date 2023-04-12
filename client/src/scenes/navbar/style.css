@@ -1,0 +1,274 @@
+
+  .container {
+    width:20%;
+
+  }
+  .nav {
+    
+    border: 2px solid gray;
+    border-radius:20px;
+  }
+  p{
+    display:block;
+    font-size:10px;
+    margin-bottom:0;
+  }
+  .Bars{
+    display:flex;
+    flex-direction: row;
+    position: fixed;
+    width:22%;
+  }
+  .barWidget{
+    transition: 0.5s ease;
+    opacity: 0%;
+  }
+  .searchWidget{
+    transition: 0.5s ease-in;
+    opacity: 100%;
+  }
+
+  .searchBarActivated{
+    transition: 0.5s ease-in;
+    margin:0 0 0 24%;
+    opacity: 100%;
+    padding-left:0.1rem;
+    display:block;
+    position:absolute;
+  }
+  .mobilesearchBarActivated{
+    transition: 0.5s ease-in;
+    opacity: 100%;
+    padding-top:0.5rem;
+    display:block;
+    position:absolute;
+    z-index: 9999;
+    margin-top:0.5rem;
+    width:15rem;
+  }
+  .searchBarActivated{
+    transition: 0.5s ease-in;
+    opacity: 100%;
+
+    display:block;
+  }
+  .searchBarNotActivated{
+    display:none;
+  }
+  .buttonNotifyActivatedNotifyBar{
+    transition: 1s ease-in;
+    opacity: 100%;
+    margin: 0 0 0 24%;
+    display:block;
+    position: absolute;
+  }
+  .buttonNotifyBarNotActivated{
+    display:none;
+  }
+  .col-md-6{
+    width:32%;
+  }
+  .title {
+    font-size:30px;
+    font-weight: 700;
+    font-family: Rubik, sans-serif;
+    color: rgba(62, 142, 186, 0.907);
+    margin-bottom: 20px; /* add margin bottom */
+  }
+  .darkMode,
+  .notifications,
+  .message,
+  .LogoutIcon,
+  .PersonIcon {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    margin: 0 8px;
+    text-align: center;
+    
+  }
+  .searchBar {
+    margin: 0 8px; 
+    text-align: center;
+
+    gap:1rem;
+    display: flex;
+    flex-direction:column;
+    align-items: center; 
+  }
+  .explore {
+    margin: 0 8px;
+    text-align: center;
+
+    gap:1rem;
+    display: flex; 
+    flex-direction:column;
+    align-items: center; 
+  }
+  .Navbar {
+
+    position:fixed;
+    width:14%;
+    display: flex; 
+    flex-direction: column;
+    height: 95%; 
+    gap:1rem;
+    
+  }
+
+  .buttonActivatedNavbar .title{
+    display:flex;
+    margin-left:20%;
+    
+  }
+  .buttons{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+    width:100%;
+    transition: 1s ease-out;
+    
+} 
+  .buttonIconActivated{
+    flex-direction: column;
+    gap:5px;
+    width:52%;
+
+  }
+  .buttonIconActivated .row{
+
+    width:"5%"
+
+  }
+  .buttonIconActivated p{
+    display:none;
+
+  }
+.searchInput{
+  background: none;
+  color:white;
+}
+
+
+.text-search,.text-theme,.text-notifications,.text-messages,.text-logout,.text-profile,.text-explore{
+  display:ruby;
+  margin-bottom:0;
+}
+@media only screen and (max-width:1500px)  {
+    p{
+        display:none;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .Navbar {
+    flex-direction: row;
+    display:flex;
+    width: 100%;
+    height:150px;
+    position:relative;
+    }
+    .buttonNotifyActivatedNotifyBar{
+      display:none;
+    }
+    .Bars{
+      position: relative;
+      width:100%;
+      gap:0;
+    }
+    body {
+        overflow-x:visible;
+      }
+      .text-search,.text-theme,.text-notifications,.text-messages,.text-logout,.text-profile,.text-explore{
+        display:none;
+      }
+    .searchBar{
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+    .title {
+        font-size:1rem;
+        margin:0 auto;
+        cursor:pointer;
+
+    }
+    .buttonActivatedNavbar .title{
+      margin:0 auto;
+      cursor:pointer;
+
+    }
+    .barWidget{
+      display:none;
+    }
+    .col {
+    flex-direction: row;
+    width: 100%; 
+    justify-content: center;
+    align-items: center; 
+    }
+    .buttons {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+    width: 100%; 
+    gap: 0px;
+    margin-top:-2rem;
+    
+    }
+    button {
+      width:10%;
+    }
+    .darkMode,
+
+    .notifications,
+    .message,
+    .searchBar,
+    .LogoutIcon,
+    .PersonIcon,
+    .explore
+     {
+      display: flex;
+      flex-direction: column; 
+      padding: 0px;
+      margin: 0 1px;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      width:30px;
+
+    }
+    }
+  
+  @media only screen and (min-width: 1000px) {
+    .col {
+      flex-direction: column; 
+    }
+  
+    .containerbetween {
+      flex-direction: row; 
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+  
+  .title {
+    font-weight: 700;
+    padding-top:1rem;
+    font-family: Rubik, sans-serif;
+    color: rgba(8, 168, 255, 0.907);
+    margin:0 auto;
+    cursor:pointer;
+
+  }
+
+
+  
+
+  
+
+
+
