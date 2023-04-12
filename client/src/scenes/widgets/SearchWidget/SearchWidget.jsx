@@ -5,8 +5,9 @@ import "./style.css";
 import { useTheme } from "@emotion/react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "api";
 
-const SearchWidget = ({ searchResultId, picturePath }) => {
+const SearchWidget = () => {
   const [searchResults, setSearchResult] = useState([]);
   const [enteredText, setEnteredText] = useState('');
 
@@ -21,7 +22,7 @@ const SearchWidget = ({ searchResultId, picturePath }) => {
         const fetchUsers = async () => {
           try {
             const response = await fetch(
-              `http://localhost:3001/users?enteredText=${enteredText}&id=${loggedInUserId}`,{
+              `${BASE_URL}/users?enteredText=${enteredText}&id=${loggedInUserId}`,{
                 method: "GET",
                 headers: {
                   Authorization: `Bearer ${token}`,

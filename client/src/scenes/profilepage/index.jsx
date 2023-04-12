@@ -7,6 +7,8 @@ import Navbar from "scenes/navbar";
 import PostsWidget from "scenes/widgets/PostsWidget";
 import UserWidget from "scenes/widgets/UserWidget/UserWidget";
 import "./style.css";
+import { BASE_URL } from "api";
+
 const ProfilePage = () => {
   // Declare a state variable `user` with initial value of `null`
   const [user, setUser] = useState(null);
@@ -37,7 +39,7 @@ const ProfilePage = () => {
   // Send a Fetch request to the server to get user info
   useEffect(() => {
     const getUser = async () => {
-      const response = await fetch(`http://localhost:3001/users/${userId}`, {
+      const response = await fetch(`${BASE_URL}/users/${userId}`, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -50,7 +52,7 @@ const ProfilePage = () => {
   // Send a GET request to the server to check if currently logged in user has blocked userId
   useEffect(() => {
     const checkBlocked = async () => {
-      const response = await fetch(`http://localhost:3001/users/${viewingUserId}/${userId}/checkIfBlocked`, {
+      const response = await fetch(`${BASE_URL}/users/${viewingUserId}/${userId}/checkIfBlocked`, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });

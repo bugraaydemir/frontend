@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-
+import { BASE_URL } from "api";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import UserImage from "components/UserImage";
@@ -12,7 +12,6 @@ import { setFollowers, setFriends } from "state";
 const FollowersWidget = ({ userId }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
-  const [isLoading, setIsLoading] = useState(true);
   const followers = useSelector((state) => state.user.followers);
   const friends = useSelector((state)=>state.user.friends);
 
@@ -20,7 +19,7 @@ const FollowersWidget = ({ userId }) => {
     const getFollowers = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/users/${userId}/followers`,
+          `${BASE_URL}/users/${userId}/followers`,
           {
             method: "GET",
             headers: {
@@ -32,7 +31,6 @@ const FollowersWidget = ({ userId }) => {
 
         const data = await response.json();
         dispatch(setFollowers({ followers: data }));
-        setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -55,7 +53,7 @@ const FollowersWidget = ({ userId }) => {
     console.log(isFriend)
     const removeFollower = async () => {
       const response = await fetch(
-        `http://localhost:3001/users/${loggedInUserId}/followers/${followerId}`,
+        `${BASE_URL}/users/${loggedInUserId}/followers/${followerId}`,
         {
           method: "PATCH",
           headers: {
@@ -74,7 +72,7 @@ const FollowersWidget = ({ userId }) => {
     };
     const patchFriend = async () => {
       const response = await fetch(
-        `http://localhost:3001/users/${loggedInUserId}/${followerId}`,
+        `${BASE_URL}/users/${loggedInUserId}/${followerId}`,
         {
           method: "PATCH",
           headers: {
@@ -96,7 +94,7 @@ const FollowersWidget = ({ userId }) => {
       // Check if the loggedInUserId is friends with the friendId
       const checkFriendship = async () => {
         const response = await fetch(
-          `http://localhost:3001/users/${loggedInUserId}/followers/${followerId}`,
+          `${BASE_URL}/users/${loggedInUserId}/followers/${followerId}`,
           {
             method: "GET",
             headers: {

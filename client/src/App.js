@@ -24,7 +24,7 @@ function App() {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3002");
+    const newSocket = io(`https://sociallobbystack.herokuapp.com`);
     setSocket(newSocket);
 
     return () => newSocket.disconnect();
@@ -49,7 +49,7 @@ function App() {
     <div className="app">
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Router basename="http://socialmedia.render.com">
+          <Router basename="https://sociallobbystack.herokuapp.com">
           <Routes>
             <Route path='/login' element={<LoginPage/>} />
             <Route

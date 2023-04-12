@@ -2,6 +2,7 @@ import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 import PostWidget from "./PostWidget/PostWidget.jsx";
+import { BASE_URL } from "api";
 
 const PostsWidget = ({ userId, isProfile = false }) => {
 
@@ -16,7 +17,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   // useCallback: Hook that memoizes a function to prevent unnecessary re-renders.
   const getPosts = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:3001/posts/${userId}/relatedPosts`, {
+      const response = await fetch(`${BASE_URL}/posts/${userId}/relatedPosts`, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
         credentials: 'include'
@@ -31,7 +32,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   // useCallback: Hook that memoizes a function to prevent unnecessary re-renders.
   const getUserPosts = useCallback(async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${loggedInUserId}/${userId}/posts`,
+      `${BASE_URL}/posts/${loggedInUserId}/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

@@ -2,11 +2,11 @@ import {
     EditOutlined,
   PersonRemoveOutlined,
   PersonAddOutlined,
-  BlockOutlined,
   SaveAltOutlined,
   CancelOutlined,
   
 } from "@mui/icons-material";
+import { BASE_URL } from "api";
 
 import { useTheme } from "@mui/material";
 import UserImage from "components/UserImage";
@@ -45,7 +45,7 @@ const UserWidget = ({ userId, picturePath, _id, isProfileBlocked }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/users/${userId}`, {
+        const response = await fetch(`${BASE_URL}/users/${userId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const UserWidget = ({ userId, picturePath, _id, isProfileBlocked }) => {
     // Check if the loggedInUserId is friends with the friendId
     const checkFriendship = async () => {
       const response = await fetch(
-        `http://localhost:3001/users/${loggedInUserId}/friends/${userId}`,
+        `${BASE_URL}/users/${loggedInUserId}/friends/${userId}`,
         {
           method: "GET",
           headers: {
@@ -93,7 +93,7 @@ const UserWidget = ({ userId, picturePath, _id, isProfileBlocked }) => {
     // Send a PATCH request to the server to add or remove a friend
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3001/users/${_id}/${userId}`,
+      `${BASE_URL}/users/${_id}/${userId}`,
       {
         method: "PATCH",
         headers: {
@@ -113,7 +113,7 @@ const UserWidget = ({ userId, picturePath, _id, isProfileBlocked }) => {
   const blockUser = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/users/${loggedInUserId}/${userId}/blockUser`,
+        `${BASE_URL}/users/${loggedInUserId}/${userId}/blockUser`,
         {
           method: "PATCH",
           headers: {
@@ -138,7 +138,7 @@ const UserWidget = ({ userId, picturePath, _id, isProfileBlocked }) => {
     // Send a PATCH request to the server to change profile picture
   const changeProfilePicture = async () => {
     const filename = newPicturePath.split("\\").pop(); // Split the path and get the last part (the filename)
-    const response = await fetch(`http://localhost:3001/settings/profilePicture/${loggedInUserId}`, {
+    const response = await fetch(`${BASE_URL}/settings/profilePicture/${loggedInUserId}`, {
       method: "PATCH",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({ picturePath: filename })

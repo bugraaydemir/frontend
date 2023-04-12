@@ -9,6 +9,7 @@ import { SaveOutlined } from "@mui/icons-material";
 import "./style.css"
 import { setBlockedList } from "state";
 import FlexBetween from "components/FlexBetween";
+import { BASE_URL } from "api";
 
 const PrivacyAndSecurity = () => {
     const loggedInUserId = useSelector((state) => state.user._id);
@@ -28,7 +29,7 @@ const PrivacyAndSecurity = () => {
     console.log(isBlocked)
     useEffect(() => {
         const getUser = async () => {
-          const response = await fetch(`http://localhost:3001/users/profile/${loggedInUserId}/user-settings/`, {
+          const response = await fetch(`${BASE_URL}/users/profile/${loggedInUserId}/user-settings/`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -49,7 +50,7 @@ const PrivacyAndSecurity = () => {
       useEffect(() => {
         const getBlockedList = async () => {
           try {
-            const response = await fetch(`http://localhost:3001/users/profile/${loggedInUserId}/blockedlist`, {
+            const response = await fetch(`${BASE_URL}/users/profile/${loggedInUserId}/blockedlist`, {
               method: "GET",
               headers: { Authorization: `Bearer ${token}` },
             });
@@ -72,7 +73,7 @@ const PrivacyAndSecurity = () => {
       
 
       const changePassword = async () => {
-        const response = await fetch(`http://localhost:3001/settings/password/${loggedInUserId}`, {
+        const response = await fetch(`${BASE_URL}/settings/password/${loggedInUserId}`, {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
           body: JSON.stringify({ password, repassword })
@@ -85,7 +86,7 @@ const PrivacyAndSecurity = () => {
 
 
         const activatePrivateProfile = async() => {
-          const response = await fetch(`http://localhost:3001/settings/activatePrivateProfile/${loggedInUserId}`, {
+          const response = await fetch(`${BASE_URL}/settings/activatePrivateProfile/${loggedInUserId}`, {
             method: "PATCH",
             headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
             body: JSON.stringify({ checkedPrivateBox : privateCheckBox })
@@ -103,7 +104,7 @@ const PrivacyAndSecurity = () => {
         const BlockedUser = ({ blockedUserId,userId, name }) => {
           const getBlockedListAgain = async () => {
             try {
-              const response = await fetch(`http://localhost:3001/users/profile/${loggedInUserId}/blockedlist`, {
+              const response = await fetch(`${BASE_URL}/users/profile/${loggedInUserId}/blockedlist`, {
                 method: "GET",
                 headers: { Authorization: `Bearer ${token}` },
               });
@@ -120,7 +121,7 @@ const PrivacyAndSecurity = () => {
             }
           };
           const unBlockUser = async () => {
-            const response = await fetch(`http://localhost:3001/users/${loggedInUserId}/${blockedUserId}/blockUser`, {
+            const response = await fetch(`${BASE_URL}/users/${loggedInUserId}/${blockedUserId}/blockUser`, {
               method: "PATCH",
               headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
               body: JSON.stringify({ blockedUserId: blockedUserId, userId: userId })

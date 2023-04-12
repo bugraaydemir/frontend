@@ -4,7 +4,6 @@ import {
     GifBoxOutlined,
     ImageOutlined,
     MicOutlined,
-    MoreHorizOutlined,
   } from "@mui/icons-material";
   import {
     Box,
@@ -16,6 +15,8 @@ import {
     IconButton,
     useMediaQuery,
   } from "@mui/material";
+
+  import { BASE_URL } from "api";
   import FlexBetween from "components/FlexBetween";
   import Dropzone from "react-dropzone";
   import UserImage from "components/UserImage";
@@ -50,7 +51,7 @@ import {
         formData.append("picture", image);
         formData.append("picturePath", image.name);
         
-        const response = await fetch(`http://localhost:3001/posts/picture`, {
+        const response = await fetch(`${BASE_URL}/posts/picture`, {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
@@ -64,7 +65,7 @@ import {
         formData.append("video", video);
         formData.append("videoPath", video.name);
     
-        const response = await fetch(`http://localhost:3001/posts/video`, {
+        const response = await fetch(`${BASE_URL}/posts/video`, {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
@@ -78,7 +79,7 @@ import {
         formData.append("audio", audio);
         formData.append("audioPath", audio.name);
     
-        const response = await fetch(`http://localhost:3001/posts/audio`, {
+        const response = await fetch(`${BASE_URL}/posts/audio`, {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
@@ -89,7 +90,7 @@ import {
         setPost("");
 
       } else {
-        const response = await fetch(`http://localhost:3001/posts/text`, {
+        const response = await fetch(`${BASE_URL}/posts/text`, {
           method: "POST",
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
           body: JSON.stringify({ userId: _id, description: post }),

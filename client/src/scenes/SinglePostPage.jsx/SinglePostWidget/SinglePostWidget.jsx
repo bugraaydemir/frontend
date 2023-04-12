@@ -1,6 +1,5 @@
 import {
     ChatBubbleOutlineOutlined,
-    DeleteOutlined,
     FavoriteBorderOutlined,
     FavoriteOutlined,
     ShareOutlined,
@@ -10,12 +9,14 @@ import {
   import Friend from "components/Friend";
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
-  import { setPost, setSinglePost } from "state";
+  import {  setSinglePost } from "state";
   import Comment from "components/CommentComponent/Comment";
   import SendIcon from '@mui/icons-material/Send';
   import "./style.css";
+  import { BASE_URL } from "api";
+
   const SinglePostWidget = ({
-    userId,
+    
     postId,
     postUserId,
     name,
@@ -39,7 +40,6 @@ import {
     const likeCount = Object.keys(likes).length;
     const [comment, setComment] = useState("");
     const { palette } = useTheme();
-    const main = palette.neutral.main;
     const medium = palette.neutral.medium;
   
     const primary = palette.primary.main;
@@ -49,7 +49,7 @@ import {
 
     const deletePost = async () => {
       const response = await fetch(
-        `http://localhost:3001/posts/${postId}/deletePost`,
+        `${BASE_URL}/posts/${postId}/deletePost`,
         {
           method: "DELETE",
           headers: {
@@ -64,7 +64,7 @@ import {
       }
     };
     const patchLike = async () => {
-      const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+      const response = await fetch(`${BASE_URL}/posts/${postId}/like`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ import {
   
     const commentAdd = async (comment) => {
       const commentId = uuidv4();
-      const response = await fetch(`http://localhost:3001/posts/${postId}/comments/${commentId}`, {
+      const response = await fetch(`${BASE_URL}/posts/${postId}/comments/${commentId}`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ import {
                 <img
                   alt=""
                   style={{borderRadius: "0.75rem", objectFit: "cover", height: "100%", width: "100%"}}
-                  src={`http://localhost:3001/assets/${picturePath}`}
+                  src={`${BASE_URL}/assets/${picturePath}`}
                 />
               </div>
             </div>
@@ -133,7 +133,7 @@ import {
               <div className="postVideo" style={{height: "100%", width: "100%"}}>
                 <video
                   style={{borderRadius: "0.75rem", objectFit: "cover", height: "100%", width: "100%"}}
-                  src={`http://localhost:3001/assets/${videoPath}`}
+                  src={`${BASE_URL}/assets/${videoPath}`}
                   controls 
                 >
                   Sorry, your browser doesn't support embedded videos.
@@ -149,7 +149,7 @@ import {
                 height="auto"
                 alt=""
                 style={{borderRadius: "0.75rem", marginTop: "0.75rem", maxHeight: "100%", maxWidth: "100%", display:"flex", margin:"0 auto"}}
-                src={`http://localhost:3001/assets/${audioPath}`}
+                src={`${BASE_URL}/assets/${audioPath}`}
                 controls 
               >
                 Sorry, your browser doesn't support embedded audio.

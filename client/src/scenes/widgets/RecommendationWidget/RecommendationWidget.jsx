@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { setFriends } from "state";
 import UserImage from "components/UserImage";
 import { useState } from "react";
-
+import { BASE_URL } from "api";
 import "./style.css"
 const RecommendationWidget = ({ userId }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const RecommendationWidget = ({ userId }) => {
   useEffect(() => {
     const getRecommendedProfiles = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/users/${userId}/recommended`, {
+        const response = await fetch(`${BASE_URL}/users/${userId}/recommended`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const RecommendationWidget = ({ userId }) => {
   
     const patchFriend = async () => {
       const response = await fetch(
-        `http://localhost:3001/users/${loggedInUserId}/${friendId}`,
+        `${BASE_URL}/users/${loggedInUserId}/${friendId}`,
         {
           method: "PATCH",
           headers: {
@@ -73,7 +73,7 @@ const RecommendationWidget = ({ userId }) => {
       // Check if the loggedInUserId is friends with the friendId
       const checkFriendship = async () => {
         const response = await fetch(
-          `http://localhost:3001/users/${loggedInUserId}/friends/${friendId}`,
+          `${BASE_URL}/users/${loggedInUserId}/friends/${friendId}`,
           {
             method: "GET",
             headers: {

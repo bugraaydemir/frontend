@@ -1,6 +1,5 @@
 import { Box } from "@mui/system";
 import NotificationWidget from "./NotificationWidget";
-import NotificationBarWidget from "./NotificationBarWidget/NotificationBarWidget";
 
 import Navbar from "scenes/navbar";
 import { useSelector } from "react-redux";

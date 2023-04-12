@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { SaveOutlined } from "@mui/icons-material";
 import "./style.css";
+import { BASE_URL } from "api";
+
 
 const NotificationSettings = () => {
   //Setting the states for user and id of the currently logged in user 
@@ -25,7 +27,7 @@ const NotificationSettings = () => {
   //Fetching logged in user's information to implement user-settings
   useEffect(() => {
     const getUser = async () => {
-      const response = await fetch(`http://localhost:3001/users/profile/${loggedInUserId}/user-settings/${userId}`, {
+      const response = await fetch(`${BASE_URL}/users/profile/${loggedInUserId}/user-settings/${userId}`, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -49,7 +51,7 @@ const NotificationSettings = () => {
   
   //PATCH request to the server thus saving the changes
   const blockNotification = async () => {
-    const response = await fetch(`http://localhost:3001/settings/likeNotification/${loggedInUserId}`, {
+    const response = await fetch(`${BASE_URL}/settings/likeNotification/${loggedInUserId}`, {
       method: "PATCH",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({ checkedLikesBox: likeCheckBox,

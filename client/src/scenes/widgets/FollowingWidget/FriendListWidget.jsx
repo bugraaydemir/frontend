@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { IconButton, useTheme } from "@mui/material";
-
+import { BASE_URL } from "api";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setFollowers, setFriends } from "state";
+import { setFriends } from "state";
 import UserImage from "components/UserImage";
 import { useState } from "react";
 import "./style.css";
@@ -17,7 +17,7 @@ const FriendListWidget = ({ userId }) => {
 
     const getFriends = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/users/${userId}/friends`, {
+        const response = await fetch(`${BASE_URL}/users/${userId}/friends`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const FriendListWidget = ({ userId }) => {
 
     const patchFriend = async () => {
       const response = await fetch(
-        `http://localhost:3001/users/${loggedInUserId}/${friendId}`,
+        `${BASE_URL}/users/${loggedInUserId}/${friendId}`,
         {
           method: "PATCH",
           headers: {
@@ -77,7 +77,7 @@ const FriendListWidget = ({ userId }) => {
       // Check if the loggedInUserId is friends with the friendId
       const checkFriendship = async () => {
         const response = await fetch(
-          `http://localhost:3001/users/${loggedInUserId}/friends/${friendId}`,
+          `${BASE_URL}/users/${loggedInUserId}/friends/${friendId}`,
           {
             method: "GET",
             headers: {

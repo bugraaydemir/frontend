@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPost, setSinglePost } from "state";
 import "./style.css";
+import { BASE_URL } from "api";
 
 const PostWidget = ({
 
@@ -47,7 +48,7 @@ const PostWidget = ({
 
   // function to handle PATCH requests for liking a post
   const patchLike = async () => {
-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+    const response = await fetch(`${BASE_URL}/posts/${postId}/like`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -64,7 +65,7 @@ const PostWidget = ({
   // function to handle PATCH requests for adding a comment to a post
   const commentAdd = async (comment) => {
     const commentId = uuidv4();
-    const response = await fetch(`http://localhost:3001/posts/${postId}/comments/${commentId}`, {
+    const response = await fetch(`${BASE_URL}/posts/${postId}/comments/${commentId}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -83,7 +84,7 @@ const PostWidget = ({
 
   // function to handle DELETE requests for deleting a post
   const deletePost = async () => {
-    const response = await fetch(`http://localhost:3001/posts/${postId}/deletePost`, {
+    const response = await fetch(`${BASE_URL}/posts/${postId}/deletePost`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -142,7 +143,7 @@ const PostWidget = ({
           <img
             alt=""
             style={{ borderRadius: "0.75rem", objectFit: "cover", height: "100%", width: "100%" }}
-            src={`http://localhost:3001/assets/${picturePath}`}
+            src={`${BASE_URL}/assets/${picturePath}`}
           />
         </div>
       )}
@@ -151,7 +152,7 @@ const PostWidget = ({
         <div className="postVideo" style={{ height: "450px", width: "100%" }}>
           <video
             style={{ borderRadius: "0.75rem", objectFit: "cover", height: "100%", width: "100%" }}
-            src={`http://localhost:3001/assets/${videoPath}`}
+            src={`${BASE_URL}/assets/${videoPath}`}
             controls
           >
             Sorry, your browser doesn't support embedded videos.
@@ -166,7 +167,7 @@ const PostWidget = ({
             height="auto"
             alt=""
             style={{ borderRadius: "0.75rem", marginTop: "0.75rem", maxHeight: "100%", maxWidth: "100%",display:"flex", margin:"0 auto" }}
-            src={`http://localhost:3001/assets/${audioPath}`}
+            src={`${BASE_URL}/assets/${audioPath}`}
             controls
           >
             Sorry, your browser doesn't support embedded audio.

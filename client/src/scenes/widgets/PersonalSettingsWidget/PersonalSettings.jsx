@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./style.css";
 import { SaveOutlined } from "@mui/icons-material";
-
+import { BASE_URL } from "api";
 
 const PersonalSettings = () => {
     const loggedInUserId = useSelector((state) => state.user._id);
@@ -15,7 +15,6 @@ const PersonalSettings = () => {
     const [user, setUser] = useState(true);
     const [isName, setName] = useState("");
     const [isEmail, setChangeEmail] = useState("");
-
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -24,14 +23,14 @@ const PersonalSettings = () => {
     const [isLocation, setIsLocation] = useState("");
     const [occupation, setOccupation] = useState("");
     const [isOccupation, setIsOccupation] = useState("");
-console.log(user)
+
     const { id: userId } = useParams(); // get the userId from the URL parameters
     const navigate = useNavigate();
     const dispatch = useDispatch();
     
     useEffect(() => {
         const getUser = async () => {
-          const response = await fetch(`http://localhost:3001/users/profile/${loggedInUserId}/user-settings/${userId}`, {
+          const response = await fetch(`${BASE_URL}/users/profile/${loggedInUserId}/user-settings/${userId}`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -48,7 +47,7 @@ console.log(user)
       }, [userId,loggedInUserId, navigate, token]);
       //PATCH request to the server for firstName update
       const changeFirstName = async () => {
-        const response = await fetch(`http://localhost:3001/settings/firstName/${loggedInUserId}`, {
+        const response = await fetch(`${BASE_URL}/settings/firstName/${loggedInUserId}`, {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
           body: JSON.stringify({ firstName })
@@ -59,7 +58,7 @@ console.log(user)
       };
       //PATCH request to the server for lastName update
       const changeLastName = async () => {
-        const response = await fetch(`http://localhost:3001/settings/lastName/${loggedInUserId}`, {
+        const response = await fetch(`${BASE_URL}/settings/lastName/${loggedInUserId}`, {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
           body: JSON.stringify({ lastName })
@@ -70,7 +69,7 @@ console.log(user)
       };
       //PATCH request to the server for email update
       const changeEmail = async () => {
-        const response = await fetch(`http://localhost:3001/settings/email/${loggedInUserId}`, {
+        const response = await fetch(`${BASE_URL}/settings/email/${loggedInUserId}`, {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
           body: JSON.stringify({ email, reemail })
@@ -81,7 +80,7 @@ console.log(user)
       };
       //PATCH request to the server for location update
       const changeLocation = async () => {
-        const response = await fetch(`http://localhost:3001/settings/location/${loggedInUserId}`, {
+        const response = await fetch(`${BASE_URL}/settings/location/${loggedInUserId}`, {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
           body: JSON.stringify({ location })
@@ -92,7 +91,7 @@ console.log(user)
       };
       //PATCH request to the server for occupation update
       const changeOccupation = async () => {
-        const response = await fetch(`http://localhost:3001/settings/occupation/${loggedInUserId}`, {
+        const response = await fetch(`${BASE_URL}/settings/occupation/${loggedInUserId}`, {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
           body: JSON.stringify({ occupation })

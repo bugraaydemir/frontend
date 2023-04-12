@@ -14,7 +14,7 @@ import {
   SearchOutlined,
   ExploreOutlined,
 } from "@mui/icons-material";
-
+import { BASE_URL } from "api";
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import "./style.css"
 import { useDispatch, useSelector } from "react-redux";
@@ -67,7 +67,7 @@ const Navbar = ({notificationId}) => {
     const fetchNotifications = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/users/${ownerId}/notifications`,
+          `${BASE_URL}/users/${ownerId}/notifications`,
           {
             method: "GET",
             headers: {

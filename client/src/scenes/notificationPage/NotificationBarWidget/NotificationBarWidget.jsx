@@ -6,7 +6,7 @@ import { useTheme } from "@emotion/react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
-
+import { BASE_URL } from "api";
 const NotificationBarWidget = ({ notificationId, postId, picturePath, onNewNotification }) => {
   const ownerId = useSelector((state) => state.user._id);
   const [notifications, setNotifications] = useState([]);
@@ -20,7 +20,7 @@ const NotificationBarWidget = ({ notificationId, postId, picturePath, onNewNotif
 
   //listen to the new notifications that have been created by other controllers and pass them to the setNotifications state.
   useEffect(() => {
-    const socket = io("http://localhost:3002");
+    const socket = io(`${BASE_URL}`);
 
     socket.on("newNotification", (newNotification) => {
       if( ownerId !== newNotification.ownerId){
@@ -36,7 +36,7 @@ const NotificationBarWidget = ({ notificationId, postId, picturePath, onNewNotif
     //fetch the user's notifications with a GET request to the server.
     const fetchNotifications = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/users/${ownerId}/notifications`, {
+        const response = await fetch(`${BASE_URL}/users/${ownerId}/notifications`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ const NotificationBarWidget = ({ notificationId, postId, picturePath, onNewNotif
 
   //set the individual notification's isRead boolean value to true 
   const clickNotification = async (id) => {
-    const response = await fetch(`http://localhost:3001/notifications/${id}/notification/read`, {
+    const response = await fetch(`${BASE_URL}/notifications/${id}/notification/read`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,

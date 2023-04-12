@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { setFollowers } from "state";
 import { useTheme } from "@emotion/react";
 import Navbar from "scenes/navbar";
+import { BASE_URL } from "api";
 
 
 const FollowersPage = () => {
@@ -19,7 +20,7 @@ const FollowersPage = () => {
 
     //Fetching the viewed user's information by making a GET request to the server
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`${BASE_URL}/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { setFriends } from "state";
 import { useTheme } from "@emotion/react";
+import { BASE_URL } from "api";
 
 import Navbar from "scenes/navbar";
 
@@ -18,7 +19,7 @@ const FriendsPage = () => {
   
     //Fetching the viewed user's information by making a GET request to the server
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`${BASE_URL}/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

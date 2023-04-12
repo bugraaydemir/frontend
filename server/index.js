@@ -14,7 +14,6 @@ import {register} from "./controllers/auth.js";
 
 import authRoutes from "./routes/auth.js"
 
-import authRoutes from "./routes/auth.js";
 
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
@@ -70,7 +69,7 @@ app.use(function(req, res, next) {
 // Create a http server for socket.io and set up socket.io with CORS options
 const httpServer = createServer();
 const io = new Server(httpServer, {
-  cors: {
+  cors: { 
     origin: ["https://sociallobbystack.herokuapp.com"],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']

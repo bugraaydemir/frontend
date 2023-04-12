@@ -8,6 +8,8 @@ import PrivacyAndSecurity from "scenes/widgets/PrivacyAndSecurityWidget/PrivacyA
 import NotificationSettings from "scenes/widgets/NotificationWidget/NotificationSettings";
 import "./style.css";
 import { useTheme } from "@emotion/react";
+import { BASE_URL } from "api";
+
 const UserSettingsPage = () => {
     const loggedInUserId = useSelector((state) => state.user._id);
     const token = useSelector((state)=> state.token)
@@ -27,7 +29,7 @@ const UserSettingsPage = () => {
 // fetching the user information with the loggedInUserId
 useEffect(() => {
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/profile/${loggedInUserId}/user-settings/${userId}`, {
+    const response = await fetch(`${BASE_URL}/users/profile/${loggedInUserId}/user-settings/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

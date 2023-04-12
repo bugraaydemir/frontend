@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 import ExplorePostWidget from "scenes/ExplorePostWidget/ExplorePostWidget";
 import { useCallback } from 'react';
-
+import { BASE_URL } from "api";
 const ExplorePostsWidget = ({ userId}) => {
   const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ const ExplorePostsWidget = ({ userId}) => {
 
   const getExplorePosts = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:3001/posts/${userId}/explore`, {
+      const response = await fetch(`${BASE_URL}/posts/${userId}/explore`, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
         credentials: 'include'
