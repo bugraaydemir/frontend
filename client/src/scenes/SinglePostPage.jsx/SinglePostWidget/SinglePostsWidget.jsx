@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSinglePost} from "state";
 import SinglePostWidget from "./SinglePostWidget";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "api";
+
 const SinglePostsWidget = () => {
   const dispatch = useDispatch();
   const { postId } = useParams(); // Extract the postId from the URL
@@ -15,7 +17,7 @@ const SinglePostsWidget = () => {
     const getSinglePost = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/posts/${postId}/singlePost`,
+          `${BASE_URL}/posts/${postId}/singlePost`,
           {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
