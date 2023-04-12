@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === 'production') {
 // Setting up the root component and rendering the app inside it
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<BrowserRouter basename="https://sociallobbystack.herokuapp.com">  
+<BrowserRouter basename="https://sociallobystack.herokuapp.com">  
     <React.StrictMode>
     <Provider store ={store}>
       {/* Persisting state using redux-persist */}
