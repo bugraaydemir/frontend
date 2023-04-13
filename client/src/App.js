@@ -49,7 +49,6 @@ function App() {
     <div className="app">
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Router basename="https://sociallobbystack.herokuapp.com">
           <Routes>
             <Route path='/login' element={<LoginPage/>} />
             <Route
@@ -82,7 +81,6 @@ function App() {
 
               />  
           </Routes>
-          </Router>
         </ThemeProvider>
     </div>
   );
